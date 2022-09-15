@@ -75,6 +75,8 @@ the text in the input.
                 // don't add 
                 alert('Your list is full')
                 return   // stop processing this event - no more code in this function will run
+                // the user may try to click the button again, and then this function will start over
+                // returning doesn't affect other event handlers. 
             }
 
             // 1. read the text from the input
@@ -102,6 +104,9 @@ the text in the input.
             textUnorderedList.innerHTML = ''   // easiest way
             // optional alternative - ask the textUnorderedList for its children, then 
             // loop over and remove each child
+
+            // When the list is cleared, need to reset the variable that counts the items 
+            numberOfListItems = 0  // reset to 0, list is empty, has no items
         })
 
 
