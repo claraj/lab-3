@@ -79,9 +79,26 @@ the text in the input.
                 // returning doesn't affect other event handlers. 
             }
 
+          
             // 1. read the text from the input
             let newText = textInputElement.value  // read the value property
             console.log(newText)
+            
+            
+            // Is the text at least 1 letter long, and no more than 50 letters? 
+
+            // Do nothing if no text entered 
+            if (newText.length < 1) {
+              // do nothing
+              return
+            }
+                
+            // show alert message if text is too many letters
+            // don't clear the input to allow the user to edit the text they entered
+            if (newText.length > 50) {
+                alert('This text is too long')
+                return
+            }
 
             // 2. Make a new list item element 
             let newListItemElement = document.createElement('li')  // create list item 
