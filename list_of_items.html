@@ -88,7 +88,7 @@ the text in the input.
             // Is the text at least 1 letter long, and no more than 50 letters? 
 
             // Do nothing if no text entered 
-            if (newText.length < 1) {
+            if (newText.length === 0) {  //always use double equals or triple equals to test equality
               // do nothing
               return
             }
