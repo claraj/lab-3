@@ -58,6 +58,8 @@ the text in the input.
         let textUnorderedList = document.querySelector('#list-of-text-entries')
         let clearListButton = document.querySelector('#clear-list-button')
 
+        let numberOfListItems = 0   // keep track of the number of items in the list
+
         addNewTextButton.addEventListener('click', function() {
             // alert("button clicked!")  // looks like this is working :)
 
@@ -65,6 +67,15 @@ the text in the input.
             // the text should be added to the list, as a new list element. 
             // When the text has been added to the unordered list, 
             // clear the text from the input. 
+
+            // Check if there is room in the list for another item - only allowed to add 10
+            // TODO there are other ways to express this logic - maybe you think another 
+            // way is clearer - that's also a correct solution! 
+            if (numberOfListItems >= 10) {
+                // don't add 
+                alert('Your list is full')
+                return   // stop processing this event - no more code in this function will run
+            }
 
             // 1. read the text from the input
             let newText = textInputElement.value  // read the value property
@@ -78,7 +89,12 @@ the text in the input.
             textUnorderedList.appendChild(newListItemElement) // add to list
             
             // Clear the text input, ready for the next item to be entered 
-            textInputElement.value = ''  // 
+            textInputElement.value = ''  // set the value to an empty string to clear the input
+
+            numberOfListItems++  // increment value of number variable by 1 
+            // numberOfListItems = numberOfListItems + 1   // equivalent to the above
+            console.log(numberOfListItems)
+            
         })
 
         clearListButton.addEventListener('click', function() {
